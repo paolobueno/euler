@@ -39,3 +39,11 @@ func Eratosthenes(n int) []int {
 
 	return result
 }
+
+func SumChannel(c <- chan int) int {
+	sum := 0
+	for i := range c {
+		sum += i
+	}
+	return sum
+}

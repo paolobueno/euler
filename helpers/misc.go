@@ -30,3 +30,18 @@ func MaxInSlice(slice []int) int{
 	}
 	return max
 }
+
+func ChanEqSlice(c <-chan int, slice []int) bool {
+	count := 0
+	for i := range c{
+		if count >= len(slice) {
+			return false
+		}
+
+		if i != slice[count] {
+			return false
+		}
+		count++
+	}
+	return true
+}
