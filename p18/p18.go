@@ -29,6 +29,7 @@ Find the maximum total from top to bottom of the triangle below:
 package main
 
 import "github.com/paolobueno/euler/helpers"
+import "github.com/paolobueno/euler/specifics"
 import "fmt"
 
 var problem = [][]int{
@@ -49,17 +50,6 @@ var problem = [][]int{
 	{04,62,98,27,23,9,70,98,73,93,38,53,60,4,23},
 }
 
-func biggestPredecessor(depth int, pos int, graph [][]int) int{
-	prevLevel := graph[depth-1]
-	if pos == 0 {
-		return prevLevel[pos]
-	} else if pos >= len(prevLevel) {
-		return prevLevel[pos-1]
-	} else {
-		return helpers.Max(prevLevel[pos-1], graph[depth-1][pos])
-	}
-}
-
 func main() {
 	longestLenghts := make([][]int, len(problem))
 	for i := range longestLenghts {
@@ -72,7 +62,7 @@ func main() {
 		arr := problem[depth]
 	 	for pos, value := range arr {
 			// longest length to node = longest length to predecessor + own weight
-	 		longestLenghts[depth][pos] = biggestPredecessor(depth, pos, longestLenghts) + value
+	 		longestLenghts[depth][pos] = specifics.BiggestTrianglePredecessor(depth, pos, longestLenghts) + value
 	 	}
 	}
 

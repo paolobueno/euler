@@ -8,17 +8,11 @@ package main
 
 import "math/big"
 import "fmt"
-import "strconv"
+import "github.com/paolobueno/euler/specifics"
 
 func main() {
 	theNumber := big.NewInt(0).Exp(big.NewInt(2), big.NewInt(1000), nil)
 	fmt.Println(theNumber)
-	arr := []byte(theNumber.String())
-	result := 0
-	for _, v := range arr {
-		char := string(v)
-		number, _ := strconv.Atoi(char)
-		result += number
-	}
+	result := specifics.AddDigits(theNumber)
 	fmt.Println(result)
 }
