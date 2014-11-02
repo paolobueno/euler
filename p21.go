@@ -20,6 +20,7 @@ func hasAmicable(one int) bool {
 
 func main() {
 	sum := 0
+	// start test with 10 since Divisors fail for small numbers
 	for i := 10; i < 10000; i++ {
 		if hasAmicable(i) {
 			sum += i
