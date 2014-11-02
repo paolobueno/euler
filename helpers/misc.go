@@ -45,3 +45,14 @@ func ChanEqSlice(c <-chan int, slice []int) bool {
 	}
 	return true
 }
+
+func EachDigit(n int) <-chan int {
+	c := make(chan int)
+	go func() {
+		for i := n; i > 0; i = i / 10 {
+			c <- i % 10
+		}
+		close(c)
+	}()
+	return c
+}
