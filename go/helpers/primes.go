@@ -16,6 +16,10 @@ func IsPrime(n int) bool {
 	return true
 }
 
+
+/*
+Returns a list of primes using the sieve of Eratosthenes up to n
+ */
 func Eratosthenes(n int) []int {
 	arr := make([]bool, n + 1)
 	// initialize to true

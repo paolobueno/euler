@@ -13,6 +13,6 @@ func BiggestTrianglePredecessor(depth int, pos int, graph [][]int) int{
 	} else if pos >= len(prevLevel) {
 		return prevLevel[pos-1]
 	} else {
-		return helpers.Max(prevLevel[pos-1], graph[depth-1][pos])
+		return helpers.Max(prevLevel[pos-1], prevLevel[pos])
 	}
 }
